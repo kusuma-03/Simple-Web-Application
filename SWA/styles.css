@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* light gray background */
+    color: #333; /* dark gray text color */
+}
+
+#app {
+    text-align: center;
+    margin-top: 50px;
+    background-color: #fff; /* white background for the content area */
+    padding: 20px;
+    border-radius: 10px; /* rounded corners for the content area */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* drop shadow effect */
+}
+
+.details {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff; /* blue button background */
+    color: #fff; /* white text color */
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3; /* darker blue on hover */
+}
