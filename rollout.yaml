@@ -30,4 +30,38 @@ spec:
         # Add more steps as needed
       maxUnavailable: 1
       maxSurge: 1
+      apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: my-static-webapp-rollout
+  namespace: my-static-webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-static-webapp
+  template:
+    metadata:
+      labels:
+        app: my-static-webapp
+    spec:
+      containers:
+        - name: my-static-webapp
+          image: my_image_name:latest
+          ports:
+            - containerPort: 80
+  strategy:
+    canary:
+      steps:
+        - setWeight: 10
+          pause:
+            duration: 10m
+        - setWeight: 20
+          pause:
+            duration: 10m
+        # Add more steps as needed
+      maxUnavailable: 1
+      maxSurge: 1
+  # Add other fields such as metrics, analysis, etc. as needed
+progressDeadlineSeconds: 600  # Set the progress deadline to 10 minutes
   # Add other fields such as metrics, analysis, etc. as needed
